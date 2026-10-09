@@ -1,0 +1,86 @@
+/* ProductCard.css */
+.product-card {
+  background: white;
+  border: 2px solid #AFEEEE;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(32, 178, 170, 0.1);
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  border-color: #20B2AA;
+  box-shadow: 0 8px 20px rgba(32, 178, 170, 0.2);
+  transform: translateY(-4px);
+}
+
+.product-header {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #40E0D0;
+  object-fit: cover;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.username {
+  color: #008B8B;
+  font-size: 16px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.timestamp {
+  color: #20B2AA;
+  font-size: 13px;
+  display: block;
+  margin-top: 4px;
+}
+
+.product-content {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+.product-actions {
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid #E0FFFF;
+  padding-top: 15px;
+}
+
+.action-btn {
+  flex: 1;
+  background-color: #E0FFFF;
+  color: #008B8B;
+  border: 2px solid #AFEEEE;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: #AFEEEE;
+  border-color: #20B2AA;
+  color: #008B8B;
+}
+
+.action-btn:active {
+  transform: scale(0.98);
+}
