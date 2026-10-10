@@ -1,5 +1,4 @@
 import './App.css';
-import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './assets/components/Header';
 import Footer from './assets/components/Footer';
@@ -7,12 +6,26 @@ import HomePage from './pages/Homepage';
 import ProductsPage from './pages/ProductPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import CartPage from './pages/CartPage';
+import { useState, useEffect } from 'react';
 
 
 
 function App() {
-  const [cart, setCart] = useState([]);
-  const products = [
+  const [cart, setCart] = useState(() => {
+    try {
+      const saved = localStorage.getItem('cart');
+      return saved ? JSON.parse(saved) : [];
+    }   catch {
+    return [];
+  }
+});
+
+useEffect(() => {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}, [cart]);
+  
+
+const products = [
   { 
     id: 1, 
     name: "Wireless Headphones", 
@@ -65,6 +78,7 @@ function App() {
   const removeFromCart = (productId) => {
     setCart(cart.filter((item, index) => index !== cart.findIndex(p => p.id === productId)));
   };
+  
   return (
     <div className="app">
       <Header cartCount={cart.length} />
